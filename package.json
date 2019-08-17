@@ -1,0 +1,60 @@
+{
+  "name": "@dannyfranca/any-chat",
+  "version": "0.0.1",
+  "description": "Universal, extensible and improved JS API for Chats, like TawkTo, Jivochat, and others.",
+  "license": "MIT",
+  "author": {
+    "name": "Danny França",
+    "email": "contato@dannyfranca.com"
+  },
+  "contributors": [
+    {
+      "name": "Danny França <contato@dannyfranca.com>"
+    }
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": "https://github.com/dannyfranca/any-chat",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "tsc --noEmit && jest",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "yarn run build:types && yarn run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "lib/"
+  ],
+  "bugs": {
+    "url": "https://github.com/dannyfranca/any-chat/issues"
+  },
+  "homepage": "https://github.com/dannyfranca/any-chat#readme",
+  "dependencies": {
+    "lodash": "^4.*",
+    "rxjs": "^6.5.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.*",
+    "@babel/core": "^7.*",
+    "@babel/plugin-proposal-class-properties": "^7.*",
+    "@babel/plugin-proposal-object-rest-spread": "^7.*",
+    "@babel/preset-env": "^7.*",
+    "@babel/preset-typescript": "^7.*",
+    "@types/jest": "^24.*",
+    "@types/lodash": "^4.*",
+    "@types/node": "^12.*",
+    "@typescript-eslint/parser": "^2.*",
+    "codecov": "latest",
+    "husky": "latest",
+    "jest": "latest",
+    "jest-extended": "latest",
+    "ts-jest": "latest",
+    "typescript": "^3.*"
+  }
+}
