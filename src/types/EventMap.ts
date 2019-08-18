@@ -2,10 +2,10 @@ import State from "./State"
 import EventMapValue from "./EventMapValue"
 
 export default interface EventMap {
+  load: EventMapValue
   stateChange?: EventMapValue<State>
   preSubmit?: EventMapValue<object>
   offlineSubmit?: EventMapValue<object>
-  load?: EventMapValue
   open?: EventMapValue
   close?: EventMapValue
   start?: EventMapValue
