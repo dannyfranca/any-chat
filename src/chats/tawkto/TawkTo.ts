@@ -18,18 +18,23 @@ export default class TawkTo extends ChatBase<TawkToTsd> implements MethodMap {
     super()
   }
   
-  _eventMap: EventMap = {}
+  _eventMap: EventMap = {
+    load: 'onLoad',
+    stateChange: 'onStatusChange',
+    preSubmit: ['onPrechatSubmit', (data: object) => data],
+    offlineSubmit: ['onOfflineSubmit', (data: object) => data],
+    open: 'onChatMaximized',
+    close: 'onChatMinimized',
+    start: 'onChatStarted',
+    end: 'onChatEnded',
+    hidden: 'onChatHidden'
+  }
   
-  _loader(): Promise<TawkToTsd> {
-    
-    // Setup variables
-    let loaded = 0
-    let timeCount = 0
+  _loader(): TawkToTsd {
     window.Tawk_API = window.Tawk_API || {}
     
+    // TawkTo events need to be set before instance is created
     this._api = window.Tawk_API
-    this.mapEvents()
-    this.on('load', () => this.ready())
     
     // Load main chat script
     window.Tawk_LoadStart = new Date()
@@ -41,14 +46,8 @@ export default class TawkTo extends ChatBase<TawkToTsd> implements MethodMap {
     s1.setAttribute('crossorigin', '*')
     // @ts-ignore
     s0.parentNode.insertBefore(s1, s0)
-    return new Promise(function (resolve) {
-      (function waitFor() {
-        if (loaded) resolve(window.Tawk_API)
-        else if (timeCount > 10000) throw ChatBase.setError('TawkTo took too long to load')
-        timeCount += 100
-        setTimeout(waitFor, 100)
-      })()
-    })
+    
+    return window.Tawk_API
   }
   
   public addTags(tags: string[], callback?: Function): void {
