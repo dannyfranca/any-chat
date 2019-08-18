@@ -12,6 +12,7 @@ export default abstract class ChatBase<ChatApi> extends EventHandler {
   protected _api: ChatApi | undefined
   
   private _eventsMapped: boolean = false
+  private _loaded: boolean = false
   
   constructor() {
     super()
@@ -21,6 +22,7 @@ export default abstract class ChatBase<ChatApi> extends EventHandler {
   private init(): void {
     this._loader().then((api: ChatApi) => this._api = api)
     this.mapEvents()
+    this.ready()
   }
   
   protected mapEvents(): void {
@@ -55,6 +57,10 @@ export default abstract class ChatBase<ChatApi> extends EventHandler {
     }
     
     this._eventsMapped = true
+  }
+  
+  protected ready(): void {
+    this._loaded = true
   }
   
   protected attachEvent(event: string, callback: EventCallback<any>): void {

@@ -23,15 +23,13 @@ export default class TawkTo extends ChatBase<TawkToTsd> implements MethodMap {
   _loader(): Promise<TawkToTsd> {
     
     // Setup variables
-    let loaded = false
+    let loaded = 0
     let timeCount = 0
     window.Tawk_API = window.Tawk_API || {}
     
     this._api = window.Tawk_API
     this.mapEvents()
-    this.on('load', () => {
-      loaded = true
-    })
+    this.on('load', () => this.ready())
     
     // Load main chat script
     window.Tawk_LoadStart = new Date()

@@ -1,6 +1,7 @@
 module.exports = {
-  testEnvironment: 'node',
-  setupFilesAfterEnv: ["jest-extended"],
+  // testEnvironment: 'node',
+  preset: "jest-puppeteer",
+  setupFilesAfterEnv: ["jest-extended", "expect-puppeteer"],
   testMatch: ['<rootDir>/test/**/*.test.{js,ts}'],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   collectCoverage: true,

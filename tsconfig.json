@@ -2,8 +2,8 @@
   /* Basic Options */
   "compilerOptions": {
     "incremental": true,
-    "target": "esnext",
-    "module": "commonjs",
+    "module": "es6",
+    "target": "es5",
     "lib": [
       "es2017",
       "es7",
@@ -17,7 +17,7 @@
     //    "jsx": "preserve",
     "declaration": true,
     "declarationMap": true,
-    //    "sourceMap": true,
+    "sourceMap": true,
     //    "outFile": "./",
     "outDir": "./lib",
     //     "rootDir": ".",
@@ -41,14 +41,14 @@
     //    "noUnusedParameters": true,
     //    "noImplicitReturns": true,
     //    "noFallthroughCasesInSwitch": true,
-    //    "moduleResolution": "node",
+    "moduleResolution": "node",
     "baseUrl": ".",
     //    "paths": {},
     //    "rootDirs": [],
     //    "typeRoots": [],
     //    "types": [],
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
     //    "preserveSymlinks": true,
     //    "allowUmdGlobalAccess": true,
     //    "sourceRoot": "",
@@ -56,7 +56,7 @@
     //    "inlineSourceMap": true,
     //    "inlineSources": true
 
-    //    "experimentalDecorators": true,
+    "experimentalDecorators": true
     //    "emitDecoratorMetadata": true
   },
   "include": [
