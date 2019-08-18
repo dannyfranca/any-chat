@@ -41,7 +41,7 @@ export default class TawkTo extends ChatBase<TawkToTsd> implements MethodMap {
     const s1 = document.createElement('script')
     const s0 = document.getElementsByTagName('script')[0]
     s1.async = true
-    s1.src = `https://embed.tawk.to/${this._id}/default`
+    s1.src = `https://embed.tawk.to/${this._id}`
     s1.charset = 'UTF-8'
     s1.setAttribute('crossorigin', '*')
     // @ts-ignore
