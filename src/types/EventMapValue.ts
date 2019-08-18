@@ -1,4 +1,4 @@
-import Event from "./Event"
+import EventCallback from "./EventCallback"
 
-type EventMapValue<Return = void> = [string, Event<Return>]
+type EventMapValue<Return = void> = [string, EventCallback<Return>] | string
 export default EventMapValue
