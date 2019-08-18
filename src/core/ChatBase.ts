@@ -32,6 +32,28 @@ export default abstract class ChatBase<ChatApi> extends EventHandler {
     this._loaded = true
   }
   
+  public then(resolve?: (chat?: this) => any, reject?: (chat?: this) => any): Promise<any> {
+    let valueFromCallback
+    if (this._loaded) {
+      try {
+        valueFromCallback = resolve ? resolve(this) : undefined
+      } catch (e) {
+        return Promise.reject(reject ? reject(e) : e)
+      }
+      return Promise.resolve(valueFromCallback)
+    }
+    return new Promise((res, rej) => {
+      this.on('load', () => {
+        try {
+          valueFromCallback = resolve ? resolve(this) : undefined
+        } catch (e) {
+          return rej(reject ? reject(e) : e)
+        }
+        res(valueFromCallback)
+      })
+    })
+  }
+  
   protected waitFor(test: () => any, then: () => any, testInterval: number = 200, limit: number = 10000): Promise<any> {
     try {
       if (test()) return Promise.resolve(then())
