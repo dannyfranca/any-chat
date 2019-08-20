@@ -1,2 +1,2 @@
-type State = 'online' | 'offline' | 'away'
+type State = 'online' | 'offline' | 'away' | ''
 export default State

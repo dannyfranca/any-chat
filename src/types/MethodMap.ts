@@ -2,17 +2,17 @@ import State from "./State"
 import StringNumberObject from "./StringNumberObject"
 
 export default interface MethodMap {
-  visitorData?: () => object
-  setVisitorData?: (data: object) => void
-  event?: (eventName:string, data?: StringNumberObject, callback?: Function) => void
-  addTags?: (tags: string[], callback?: Function) => void
-  removeTags?: (tags: string[], callback?: Function) => void
-  end?: () => void
-  open?: () => void
-  close?: () => void
-  toggle?: () => void
-  popup?: () => void
+  setVisitorData?: (data: StringNumberObject) => Promise<void>
+  event?: (eventName: string, data?: StringNumberObject) => Promise<void>
+  addTags?: (tags: string[]) => Promise<void>
+  removeTags?: (tags: string[]) => Promise<void>
+  end?: () => Promise<void>
+  open?: () => Promise<void>
+  close?: () => Promise<void>
+  toggle?: () => Promise<void>
+  popup?: () => Promise<void>
   state?: () => State
+  visitorData?: () => object
   isOnline?: () => boolean
   isOffline?: () => boolean
   isAway?: () => boolean
