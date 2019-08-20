@@ -7,7 +7,10 @@ interface VisitorInfo extends StringNumberObject {
   hash?: string
 }
 
+type Callback<E = Error> = (error?: E) => void
+
 export default interface TawkToTsd {
+  visitor: VisitorInfo
   onLoad: () => any
   onStatusChange: (status: Status) => any
   onBeforeLoad: () => any
@@ -18,7 +21,6 @@ export default interface TawkToTsd {
   onChatEnded: () => any
   onPrechatSubmit: () => any
   onOfflineSubmit: () => any
-  visitor: VisitorInfo
   maximize: () => void
   minimize: () => void
   toggle: () => void
@@ -34,8 +36,8 @@ export default interface TawkToTsd {
   isChatOngoing: () => boolean
   isVisitorEngaged: () => boolean
   endChat: () => void
-  setAttributes: (data: VisitorInfo, callback?: Function) => void
-  addEvent: (eventName: string, metadata?: StringNumberObject, callback?: Function) => void
-  addTags: (tags: string[], callback?: Function) => void
-  removeTags: (tags: string[], callback?: Function) => void
+  setAttributes: (data: VisitorInfo, callback?: Callback) => void
+  addEvent: (eventName: string, metadata?: StringNumberObject, callback?: Callback) => void
+  addTags: (tags: string[], callback?: Callback) => void
+  removeTags: (tags: string[], callback?: Callback) => void
 }

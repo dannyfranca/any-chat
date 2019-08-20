@@ -4,6 +4,7 @@ import EventMap from "../../types/EventMap"
 import MethodMap from "../../types/MethodMap"
 import State from "../../types/State"
 import StringNumberObject from "../../types/StringNumberObject"
+import { jsApiMethod } from "../../core/decorators"
 
 declare global {
   interface Window {
@@ -16,6 +17,7 @@ export default class TawkTo extends ChatBase<TawkToTsd> implements MethodMap {
   
   constructor(private readonly _id: string) {
     super()
+    super.init()
   }
   
   _eventMap: EventMap = {
@@ -50,80 +52,114 @@ export default class TawkTo extends ChatBase<TawkToTsd> implements MethodMap {
     return window.Tawk_API
   }
   
-  public addTags(tags: string[], callback?: Function): void {
-    window.Tawk_API.addTags(tags, callback)
+  @jsApiMethod()
+  public async open(): Promise<void> {
+    window.Tawk_API.maximize()
   }
   
-  public close(): void {
+  @jsApiMethod()
+  public async close(): Promise<void> {
     window.Tawk_API.minimize()
   }
   
-  public end(): void {
+  @jsApiMethod()
+  public async end(): Promise<void> {
     window.Tawk_API.endChat()
   }
   
-  public event(eventName: string, data?: StringNumberObject, callback?: Function): void {
-    window.Tawk_API.addEvent(eventName, data, callback)
+  @jsApiMethod()
+  public async event(eventName: string, data?: StringNumberObject): Promise<void> {
+    return new Promise((resolve, reject) => {
+      window.Tawk_API.addEvent(eventName, data, error => {
+        if (error) reject(error)
+        resolve()
+      })
+    })
   }
   
+  @jsApiMethod()
+  public async popup(): Promise<void> {
+    window.Tawk_API.popup()
+  }
+  
+  @jsApiMethod()
+  public async addTags(tags: string[]): Promise<void> {
+    return new Promise((resolve, reject) => {
+      window.Tawk_API.addTags(tags, error => {
+        if (error) reject(error)
+        resolve()
+      })
+    })
+  }
+  
+  @jsApiMethod()
+  public async removeTags(tags: string[]): Promise<void> {
+    return new Promise((resolve, reject) => {
+      window.Tawk_API.removeTags(tags, error => {
+        if (error) reject(error)
+        resolve()
+      })
+    })
+  }
+  
+  @jsApiMethod()
+  public async setVisitorData(data: TawkToTsd['visitor']): Promise<void> {
+    return new Promise((resolve, reject) => {
+      window.Tawk_API.setAttributes(data, error => {
+        if (error) reject(error)
+        resolve()
+      })
+    })
+  }
+  
+  @jsApiMethod()
+  public async toggle(): Promise<void> {
+    window.Tawk_API.toggle()
+  }
+  
+  @jsApiMethod()
   public isChatting(): boolean {
     return window.Tawk_API.isChatOngoing()
   }
   
+  @jsApiMethod()
   public isClosed(): boolean {
     return window.Tawk_API.isChatMinimized()
   }
   
+  @jsApiMethod()
   public isEngaged(): boolean {
     return window.Tawk_API.isVisitorEngaged()
   }
   
+  @jsApiMethod()
   public isHidden(): boolean {
     return window.Tawk_API.isChatHidden()
   }
   
+  @jsApiMethod()
   public isOnline(): boolean {
     return window.Tawk_API.getStatus() == 'online'
   }
   
+  @jsApiMethod()
   public isOffline(): boolean {
     return window.Tawk_API.getStatus() == 'offline'
   }
   
+  @jsApiMethod()
   public isAway(): boolean {
     return window.Tawk_API.getStatus() == 'away'
   }
   
+  @jsApiMethod()
   public isOpen(): boolean {
     return window.Tawk_API.isChatMaximized()
   }
   
-  public open(): void {
-    window.Tawk_API.maximize()
-  }
-  
-  public popup(): void {
-    window.Tawk_API.popup()
-  }
-  
-  public removeTags(tags: string[], callback?: Function): void {
-    window.Tawk_API.removeTags(tags, callback)
-  }
-  
-  public setVisitorData(data: object): void {
-    window.Tawk_API
-  }
-  
+  @jsApiMethod()
   public state(): State {
     return window.Tawk_API.getStatus()
-  }
-  
-  public toggle(): void {
-    window.Tawk_API.toggle()
-  }
-  
-  public visitorData(): TawkToTsd['visitor'] {
-    return window.Tawk_API.visitor
   }
   
 }
