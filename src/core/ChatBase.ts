@@ -1,35 +1,36 @@
 import EventMap from "../types/EventMap"
-import { Subject } from 'rxjs'
 import EventCallback from "../types/EventCallback"
 import EventHandler from "./EventHandler"
-import EventMapValue from "../types/EventMapValue"
-import Timeout = NodeJS.Timeout
 
 export default abstract class ChatBase<ChatApi> extends EventHandler {
-  abstract _loader(): Promise<ChatApi> | ChatApi
-  
   abstract _eventMap: EventMap
+  abstract _loader(): Promise<ChatApi> | ChatApi
   
   protected _api: ChatApi | undefined
   
   private _eventsMapped: boolean = false
   private _loaded: boolean = false
   
-  protected constructor() {
-    super()
-    this.init()
-  }
-  
-  private async init(): Promise<void> {
+  protected async init(): Promise<void> {
+    super.init()
     this.on('load', () => this.ready())
-    this.mapEvents()
+    this.mapApiEvents()
     this._api = await this._loader()
-    this.mapEvents()
+    this.mapApiEvents()
     this.ready()
   }
   
   protected ready(): void {
     this._loaded = true
+  }
+  
+  get loaded(): boolean {
+    return this._loaded
+  }
+  
+  public toLoad(): Promise<void> {
+    if (this._loaded) return Promise.resolve()
+    return new Promise(resolve => this.on('load', () => resolve()))
   }
   
   public then(resolve?: (chat?: this) => any, reject?: (chat?: this) => any): Promise<any> {
@@ -61,7 +62,7 @@ export default abstract class ChatBase<ChatApi> extends EventHandler {
       return Promise.reject(e)
     }
     return new Promise((resolve, reject) => {
-      let interval: Timeout
+      let interval: NodeJS.Timeout
       let count = 0
       try {
         interval = setInterval(() => {
@@ -81,34 +82,19 @@ export default abstract class ChatBase<ChatApi> extends EventHandler {
     })
   }
   
-  protected mapEvents(): void {
+  private mapApiEvents(): void {
     if (this._eventsMapped || !this._api) return
     
-    for (const prop of Object.keys(this._eventMap) as Array<keyof EventMap>) {
-      const callbackTuple: EventMapValue<any> | undefined = this._eventMap[prop]
-      if (callbackTuple) {
-        let chatCallbackName: string
-        let callback: EventCallback
-        if (typeof callbackTuple === 'string') {
-          chatCallbackName = callbackTuple
-          callback = function () {
-          }
-        } else {
-          chatCallbackName = callbackTuple[0]
-          callback = callbackTuple[1]
-        }
-        this._events[prop] = {
-          subject: new Subject(),
-          callback
-        }
+    for (const prop of Object.keys(this._events) as Array<keyof EventMap>) {
+      const event = this._events[prop]
+      if (!event) continue
         try {
-          this.attachEvent(chatCallbackName, (...args) => {
+          this.attachEvent(event.callbackName, (...args) => {
             this.trigger(prop, ...args)
           })
         } catch (e) {
           throw ChatBase.setError('Error setting callbacks in Chat API', e)
         }
-      }
     }
     
     this._eventsMapped = true

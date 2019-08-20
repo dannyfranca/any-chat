@@ -1,21 +1,16 @@
 import EventMap from "../types/EventMap"
 import { Subject, Subscription } from 'rxjs'
 import EventCallback from "../types/EventCallback"
+import EventMapValue from "../types/EventMapValue"
+import EventSingle from "../types/EventSingle"
+import EventCollection from "../types/EventCollection"
 
 type SubscriptionStore = {
   [key: string]: Subscription[]
 }
 
-type Event = {
-  subject: Subject<any>
-  callback: EventCallback
-}
-
-type EventCollection = {
-  [key in keyof EventMap]?: Event
-}
-
-export default class EventHandler {
+export default abstract class EventHandler {
+  abstract _eventMap: EventMap
   protected _subscriptions: SubscriptionStore = {}
   protected _events: EventCollection = {}
   
@@ -23,10 +18,12 @@ export default class EventHandler {
     const namespaces = eventString.split('.')
     const eventName = <keyof EventMap>namespaces[0]
     
-    const event: Event | undefined = this._events[eventName]
+    const event = this._events[eventName]
     if (!event) return
     const subscription = event.subject.subscribe({
-      next: (data: any) => callback(data)
+      next: (data: any) => {
+        callback(data)
+      }
     })
     this.storeSubscription(namespaces, subscription)
   }
@@ -36,8 +33,34 @@ export default class EventHandler {
     for (const namespace of namespaces) this.removeNamespaceSubscriptions(namespace)
   }
   
+  protected init() {
+    this.mapEvents()
+  }
+  
+  private mapEvents(): void {
+    for (const prop of Object.keys(this._eventMap) as Array<keyof EventMap>) {
+      const callbackTuple: EventMapValue<any> | undefined = this._eventMap[prop]
+      if (!callbackTuple) continue
+      let callbackName: string
+      let callback: EventCallback
+      if (typeof callbackTuple === 'string') {
+        callbackName = callbackTuple
+        callback = function () {
+        }
+      } else {
+        callbackName = callbackTuple[0]
+        callback = callbackTuple[1]
+      }
+      this._events[prop] = {
+        subject: new Subject(),
+        callbackName,
+        callback
+      }
+    }
+  }
+  
   protected trigger(eventName: keyof EventMap, ...args: any[]): void {
-    const event: Event | undefined = this._events[eventName]
+    const event: EventSingle | undefined = this._events[eventName]
     if (!event) return
     event.subject.next(event.callback(...args))
   }
