@@ -10,8 +10,8 @@ coverage
 lib
 dist
 .nyc_output
-cypres/video
-cypres/screenshot
+cypress/screenshots
+cypress/videos
 
 .DS_Store
 .idea
