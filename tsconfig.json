@@ -3,7 +3,7 @@
   "compilerOptions": {
     "incremental": true,
     "module": "es6",
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "es2017",
       "es7",
@@ -12,12 +12,12 @@
       "esnext",
       "esnext.asynciterable"
     ],
-//    "allowJs": true,
+    //    "allowJs": true,
     //    "checkJs": true,
     //    "jsx": "preserve",
     "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
+    //    "declarationMap": true,
+    //    "sourceMap": true,
     //    "outFile": "./",
     "outDir": "./lib",
     //     "rootDir": ".",
@@ -65,6 +65,7 @@
   "exclude": [
     "test",
     "node_modules",
-    "dist"
+    "dist",
+    "lib"
   ]
 }
