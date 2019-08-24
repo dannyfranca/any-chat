@@ -1,6 +1,6 @@
 {
   "name": "@dannyfranca/any-chat",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Universal, extensible and improved JS API for Chats, like TawkTo, Jivochat, and others.",
   "license": "MIT",
   "author": {

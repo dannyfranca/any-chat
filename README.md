@@ -16,7 +16,7 @@
 </a>
 
 <a href="https://travis-ci.com/dannyfranca/any-chat" target="_blank">
-    <img src="https://img.shields.io/travis/project/github/dannyfranca/any-chat?style=svg?style=flat-square&logo=travis" />
+    <img src="https://img.shields.io/travis/dannyfranca/any-chat?style=flat-square&logo=travis" />
 </a>
 
 <a href="https://codecov.io/gh/dannyfranca/any-chat" target="_blank">
