@@ -1,23 +1,22 @@
 {
   /* Basic Options */
   "compilerOptions": {
-    "incremental": true,
-    "module": "es6",
-    "target": "es6",
+    //    "incremental": true,
+    "target": "es5",
+    "module": "commonjs",
     "lib": [
-      "es2017",
-      "es7",
+      "es5",
       "es6",
-      "dom",
+      "es7",
       "esnext",
-      "esnext.asynciterable"
+      "dom"
     ],
     //    "allowJs": true,
     //    "checkJs": true,
     //    "jsx": "preserve",
     "declaration": true,
     //    "declarationMap": true,
-    //    "sourceMap": true,
+    "sourceMap": true,
     //    "outFile": "./",
     "outDir": "./lib",
     //     "rootDir": ".",
@@ -45,7 +44,10 @@
     "baseUrl": ".",
     //    "paths": {},
     //    "rootDirs": [],
-    //    "typeRoots": [],
+    "typeRoots": [
+      "node_modules/@types",
+      "types"
+    ],
     //    "types": [],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -55,17 +57,10 @@
     //    "mapRoot": "",
     //    "inlineSourceMap": true,
     //    "inlineSources": true
-
-    "experimentalDecorators": true
-    //    "emitDecoratorMetadata": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": [
     "src"
-  ],
-  "exclude": [
-    "test",
-    "node_modules",
-    "dist",
-    "lib"
   ]
 }

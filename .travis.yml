@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - 12
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+cache:
+  directories:
+    - ~/.cache
+install:
+  - yarn install
+script:
+  - yarn run type-check
+  - yarn run test
+after_success:
+  - yarn run report:coverage:text
+  - yarn run coverage
