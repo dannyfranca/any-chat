@@ -30,7 +30,6 @@
     "coverage": "codecov",
     "type-check": "tsc --noEmit",
     "lint": "eslint src/** public/** --ext .ts,.js --ignore-path .gitignore --fix",
-    "precommit": "yarn run lint && yarn run type-check",
     "doc": "typedoc",
     "compile": "tsc",
     "compile:watch": "tsc -w",
