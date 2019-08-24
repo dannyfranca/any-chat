@@ -1,2 +1,2 @@
-import ChatBase from "./core/ChatBase"
+import ChatBase from './core/ChatBase'
 export default ChatBase

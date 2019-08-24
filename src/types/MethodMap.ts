@@ -1,5 +1,5 @@
-import State from "./State"
-import StringNumberObject from "./StringNumberObject"
+import State from './State'
+import StringNumberObject from './StringNumberObject'
 
 export default interface MethodMap {
   setVisitorData?: (data: StringNumberObject) => Promise<void>

@@ -1,4 +1,4 @@
-import StringNumberObject from "../../types/StringNumberObject"
+import StringNumberObject from '../../types/StringNumberObject'
 
 type Status = 'online' | 'offline' | 'away'
 interface VisitorInfo extends StringNumberObject {
@@ -37,7 +37,11 @@ export default interface TawkToTsd {
   isVisitorEngaged: () => boolean
   endChat: () => void
   setAttributes: (data: VisitorInfo, callback?: Callback) => void
-  addEvent: (eventName: string, metadata?: StringNumberObject, callback?: Callback) => void
+  addEvent: (
+    eventName: string,
+    metadata?: StringNumberObject,
+    callback?: Callback
+  ) => void
   addTags: (tags: string[], callback?: Callback) => void
   removeTags: (tags: string[], callback?: Callback) => void
 }

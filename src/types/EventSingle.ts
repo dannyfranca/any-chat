@@ -1,5 +1,5 @@
-import { Subject } from "rxjs"
-import EventCallback from "./EventCallback"
+import { Subject } from 'rxjs'
+import EventCallback from './EventCallback'
 
 type EventSingle = {
   subject: Subject<any>

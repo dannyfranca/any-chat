@@ -1,5 +1,5 @@
-import State from "./State"
-import EventMapValue from "./EventMapValue"
+import State from './State'
+import EventMapValue from './EventMapValue'
 
 export default interface EventMap {
   load: EventMapValue

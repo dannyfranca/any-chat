@@ -1,2 +1,2 @@
-import TawkTo from "./TawkTo"
+import TawkTo from './TawkTo'
 export default TawkTo

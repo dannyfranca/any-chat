@@ -1,0 +1,301 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@dannyfranca/any-chat</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@dannyfranca/any-chat</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> @dannyfranca/any-chat</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 align="center">dannyfranca/typescript-boilerplate</h1>
+				<p align="center">TypeScript starting point handsome, clean and easy with test, CI, code coverage, documentation and git hooks.</p>
+				<p align="center">
+					<a href="https://npmjs.com/package/@dannyfranca/typescript-boilerplate" target="_blank">
+						<img src="https://img.shields.io/npm/dt/@dannyfranca/typescript-boilerplate.svg?style=flat-square&logo=npm" />
+					</a>
+					<a href="https://npmjs.com/package/@dannyfranca/typescript-boilerplate" target="_blank">
+						<img src="https://img.shields.io/npm/v/@dannyfranca/typescript-boilerplate/latest.svg?style=flat-square&logo=npm" />
+					</a>
+					<a href="https://travis-ci.com/dannyfranca/typescript-boilerplate" target="_blank">
+						<img src="https://img.shields.io/travis/project/github/dannyfranca/typescript-boilerplate?style=svg?style=flat-square&logo=travis" />
+					</a>
+					<a href="https://circleci.com/gh/dannyfranca/typescript-boilerplate" target="_blank">
+						<img src="https://img.shields.io/circleci/project/github/dannyfranca/typescript-boilerplate?style=svg?style=flat-square&logo=circleci" />
+					</a>
+					<a href="https://codecov.io/gh/dannyfranca/typescript-boilerplate" target="_blank">
+						<img src="https://img.shields.io/codecov/c/github/dannyfranca/typescript-boilerplate?style=flat-square&logo=codecov" />
+					</a>
+					<a href="https://david-dm.org/dannyfranca/typescript-boilerplate" target="_blank">
+						<img src="https://david-dm.org/dannyfranca/typescript-boilerplate/status.svg?style=flat-square" />
+					</a>
+				</p>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h2>Getting Started</h2>
+				</a>
+				<ul>
+					<li>Clone repository</li>
+				</ul>
+				<pre><code class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/dannyfranca/typescript-boilerplate.git {{project_name}}</code></pre>
+				<ul>
+					<li>Install dependencies</li>
+				</ul>
+				<pre><code class="language-bash"><span class="hljs-built_in">cd</span> {{project_name}}
+yarn</code></pre>
+				<a href="#warnings" id="warnings" style="color: inherit; text-decoration: none;">
+					<h2>Warnings</h2>
+				</a>
+				<ul>
+					<li>Experimental environment. Could change many times between versions, at least until v1.0 arrives.</li>
+					<li>If you don&#39;t want to use yarn, change yarn run for npm run in package.json commands and .lintstagedrc</li>
+				</ul>
+				<a href="#libs" id="libs" style="color: inherit; text-decoration: none;">
+					<h2>Libs</h2>
+				</a>
+				<ul>
+					<li>Compiler - <a href="https://www.typescriptlang.org" target="_blank">TypeScript</a></li>
+					<li>Linting - <a href="https://typescript-eslint.io" target="_blank">TypeScript ESLint</a></li>
+					<li>Code Formatter - <a href="https://prettier.io" target="_blank">Prettier</a></li>
+					<li>Bundler - <a href="https://parceljs.org" target="_blank">Parcel JS</a></li>
+					<li>E2E/Unit/CI Suite - <a href="https://www.cypress.io" target="_blank">Cypress</a></li>
+					<li>Coverage Reports - <a href="https://istanbul.js.org" target="_blank">Istanbul</a></li>
+					<li>Continuous Integration - <a href="https://circleci.com" target="_blank">CircleCI</a> / <a href="https://travis-ci.com" target="_blank">TravisCI</a></li>
+					<li>Code Coverage - <a href="https://codecov.io" target="_blank">Codecov</a></li>
+					<li>Git Hooks - <a href="https://github.com/typicode/husky" target="_blank">Husky</a> + <a href="https://github.com/okonet/lint-staged" target="_blank">lint-staged</a></li>
+				</ul>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>Start writing in src folder. modify any project files that fits you needs.</p>
+				<p>In package.json you have commands to dev, test, compile and build.</p>
+				<a href="#npm-commands" id="npm-commands" style="color: inherit; text-decoration: none;">
+					<h3>NPM Commands</h3>
+				</a>
+				<a href="#test" id="test" style="color: inherit; text-decoration: none;">
+					<h4>Test</h4>
+				</a>
+				<p>Commands to test you application</p>
+				<ul>
+					<li><em>dev</em>: Start developing with Parcel, Cypress and code coverage, all hot reloading</li>
+					<li><em>test</em>: If you want to test and generate code coverage reports, use before publish</li>
+					<li><em>cy:open</em>: Open cypress to test (server must be already running). Useful if you are already developing and just need to make some tests, without reload the whole process</li>
+					<li><em>cy:run</em>: Run tests in terminal, without UI. Useful the same way cypress:open is</li>
+					<li><em>coverage</em>: You don&#39;t need to run this command, it&#39;s for Circle CI perform Continuous Integration after git push</li>
+				</ul>
+				<a href="#bundle" id="bundle" style="color: inherit; text-decoration: none;">
+					<h4>Bundle</h4>
+				</a>
+				<p>Commands to help you bundling you front-end application</p>
+				<ul>
+					<li><em>start</em>: to develop only with Parcel, without tests and code coverage</li>
+					<li><em>build</em>: Generate production bundles from public to dist folder</li>
+					<li><em>doc</em>: Generate documentation from comments with Typedoc</li>
+				</ul>
+				<a href="#module" id="module" style="color: inherit; text-decoration: none;">
+					<h4>Module</h4>
+				</a>
+				<p>Commands to help you compile your TypeScript application to interoperable modules.</p>
+				<ul>
+					<li><em>compile</em>: Compile your TypeScript files in &quot;src&quot; to &quot;lib&quot; folder, with types, making your module interoperable with JavaScript</li>
+					<li><em>compile:watch</em>: Same as compile, but keeps a process watching and recompiling the changes</li>
+					<li><em>compile:types</em>: Only emits the type declaration files</li>
+					<li><em>type-check</em>: Only check the types, good to run between commits to get errors when working with multiple files (If using built in git hooks with Husky, executed automatically before any commit)</li>
+				</ul>
+				<a href="#conclusion" id="conclusion" style="color: inherit; text-decoration: none;">
+					<h2>Conclusion</h2>
+				</a>
+				<p>Have a Nice Coding! 🤓</p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p><a href="./LICENSE">MIT License</a></p>
+				<p>Copyright (c) Danny França <a href="mailto:&#x63;&#x6f;&#x6e;&#x74;&#x61;&#x74;&#x6f;&#64;&#x64;&#x61;&#x6e;&#x6e;&#121;&#102;&#114;&#x61;&#110;&#99;&#x61;&#x2e;&#99;&#111;&#109;">&#x63;&#x6f;&#x6e;&#x74;&#x61;&#x74;&#x6f;&#64;&#x64;&#x61;&#x6e;&#x6e;&#121;&#102;&#114;&#x61;&#110;&#99;&#x61;&#x2e;&#99;&#111;&#109;</a></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_chats_tawkto_tawkto_.html">"chats/tawkto/<wbr>Tawk<wbr>To"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_chats_tawkto_tawktotsd_.html">"chats/tawkto/<wbr>Tawk<wbr>ToTsd"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_chats_tawkto_index_.html">"chats/tawkto/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_core_chatbase_.html">"core/<wbr>Chat<wbr>Base"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_core_eventhandler_.html">"core/<wbr>Event<wbr>Handler"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_core_decorators_.html">"core/decorators"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_index_.html">"index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_anydata_.html">"types/<wbr>Any<wbr>Data"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_eventcallback_.html">"types/<wbr>Event<wbr>Callback"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_eventcollection_.html">"types/<wbr>Event<wbr>Collection"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_eventmap_.html">"types/<wbr>Event<wbr>Map"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_eventmapvalue_.html">"types/<wbr>Event<wbr>Map<wbr>Value"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_eventsingle_.html">"types/<wbr>Event<wbr>Single"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_methodmap_.html">"types/<wbr>Method<wbr>Map"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_state_.html">"types/<wbr>State"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_stringnumberobject_.html">"types/<wbr>String<wbr>Number<wbr>Object"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
